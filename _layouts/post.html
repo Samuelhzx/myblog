@@ -1,0 +1,48 @@
+---
+layout:   default
+comments:  True
+---
+<link rel="stylesheet" href="/assets/css/tag.css"/>
+<link rel="stylesheet" href="/assets/css/content.css"/>
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {% for tag in site.tags %}
+      {% if page.tags contains tag[0] %}
+      <a class="post-tag" href="/tags.html?tagName={{ tag[0] }}" style="display: inline-block;">{{ tag[0] }}</a>
+      {% endif %}
+      {% endfor %}
+
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}</p>
+      
+      {%- if page.preface -%}
+        <span class="preface">{{page.preface}}</span>
+      {%- endif -%}
+
+  </header>
+
+  <div class="content">
+    {{ content }}
+  </div>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div class="view-times">viewed <span id="busuanzi_value_page_pv"></span> times</div>
+  <!-- giscus comment
+  <div class="giscus">
+    <p style="color:red">[Failed to load comment section]</p>
+  </div>-->
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

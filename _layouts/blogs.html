@@ -1,0 +1,30 @@
+---
+layout: page
+---
+<link rel="stylesheet" href="/assets/css/articleview.css"/>
+<link rel="stylesheet" href="/assets/css/tag.css"/>
+
+Tags:
+{% for tag in site.tags %}
+<a class="post-tag" href="/tags.html?tagName={{ tag[0] }}">{{ tag[0] }}({{ tag[1].size }})</a>
+{% endfor %}
+<p></p>
+<hr />
+{%- if site.posts.size > 0 -%}
+{% for post in site.posts %}
+    <div class="article">
+    <h1>{{ post.title | escape }}</h1>
+    {% for tag in post.tags %}
+      <!--<span style="color: #39739d;">{{ tag }}</span>-->
+      <span class="post-tag">{{ tag }}</span>
+    {% endfor %}
+    <p>{{ post.des | escape }}</p>
+    <span id="date">{{ post.date | date_to_string }}</span>
+    <a href="{{ post.url }}">Link</a>
+    </div>
+    <hr />
+{% endfor %}
+{%- endif -%}
+<!--br>
+<br>
+<p class="bottom">bottom</p-->

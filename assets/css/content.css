@@ -1,0 +1,67 @@
+h1 {
+	font-size: 35px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 26px;
+}
+
+h4 {
+	font-size: 23px;
+}
+
+h5 {
+	font-size: 21px;
+}
+
+h6 {
+	font-size: 20px;
+}
+
+header,
+footer,
+img {
+	user-select: none;
+}
+
+.view-times {
+	font-size: 15px;
+	margin-top: 35px;
+	text-align: right;
+	color: gray;
+}
+
+blockquote {
+	font-style: normal;
+	font-size: medium;
+}
+
+p {
+	letter-spacing: 0.5px;
+}
+
+article {
+	background-color: blanchedalmond;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+	animation: fadeIn ease-in 0.5s;
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.preface {
+	color:royalblue;
+	user-select: text;
+}
